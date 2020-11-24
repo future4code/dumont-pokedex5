@@ -2,7 +2,9 @@ import React from "react"
 import Router from "./componentes/router"
 
 function App() {
-  return <Router/>;
+  return (
+      <Router/>
+  )
 }
 
 export default App;
