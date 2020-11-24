@@ -1,10 +1,9 @@
 import React from "react"
 
-
 function Details() {
   return (
      <div>
-         funciona details
+        funciona details
      </div>
   )
 }

@@ -1,0 +1,11 @@
+div.makeStyles-viewMore-14:hover {
+    transform: translate(5px, 5px);
+}
+
+svg.makeStyles-arrowLeft-9:hover {
+    transform: translate(-10px, -50%);
+}
+
+svg.makeStyles-arrowRight-11:hover {
+    transform: translate(10px, -50%);
+}

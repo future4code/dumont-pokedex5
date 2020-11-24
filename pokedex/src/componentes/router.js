@@ -1,5 +1,6 @@
 import HomePage from "../Screens/home"
 import Details from "../Screens/details"
+import CardComponent from "../componentes/cardComponent"
 import Pokedex from "../Screens/pokedex"
 import ErrorPage from "../Screens/errorPage"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
@@ -11,10 +12,10 @@ import green from '@material-ui/core/colors/green';
 let theme = createMuiTheme({
   palette: {
     primary: {
-      main: purple[500],
+      main: "#FF6E40",
     },
     secondary: {
-      main: green[500],
+      main: "#DD2C00",
     },
   },
 });
@@ -34,6 +35,9 @@ function Router() {
         </Route>
         <Route exact path="/details">
           <Details/>
+        </Route>
+        <Route exact path="/Card">
+          <CardComponent />
         </Route>
         <Route>
           <ErrorPage/>
