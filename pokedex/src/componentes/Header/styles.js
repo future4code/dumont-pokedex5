@@ -2,12 +2,13 @@ import styled from 'styled-components'
 
 export const HeaderDiv = styled.div `
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-right: 30px;
-    padding-left: 15px;
+    padding-right: 2vw;
+    padding-left: 1vw;
     background-color: lightskyblue;
+    width:97vw;
+    position:absolute;
 `
 export const Title = styled.h1 `
     color: white;
