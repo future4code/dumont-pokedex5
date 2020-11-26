@@ -10,7 +10,7 @@ function Home() {
  
   useEffect(()=>{
     axios.get("https://pokeapi.co/api/v2/pokemon/").then(response =>{
-      setters.setListaPokemon(response)
+      setters.setListaPokemon(response.data.results)
     })
   },[])
 
@@ -19,13 +19,12 @@ function Home() {
   return (
      <div>
       <Header/>
-      {states.listaPokemon !== {} ?
-        states.listaPokemon.data.results.map((pokemon)=> {
+      {states.listaPokemon &&
+        states.listaPokemon.map((pokemon)=> {
           return (
             <CardComponent key={pokemon.name} name={pokemon.name}/>
           )
         })
-      : ""
       }
      </div>
   )
