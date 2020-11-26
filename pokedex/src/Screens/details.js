@@ -59,10 +59,9 @@ margin-top:5vh;
 text-align:center;
 `
 
-
 function Details() {
   return (
-    
+
      <Page>
         <Header/>
         
@@ -89,7 +88,6 @@ function Details() {
          </div>
    
      </Page>
-
   )
 }
 
