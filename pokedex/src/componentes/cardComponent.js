@@ -100,10 +100,11 @@ const useStyles = makeStyles({
   }
 });
 
-function CardComponent(props) {
+function CardComponent() {
   const theme = useTheme();
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
+
   const [pokemonImage, setPokemonImage] = useState('')
   const {states, setters} = useContext(GlobalStateContext)
 
@@ -145,8 +146,6 @@ function CardComponent(props) {
 
   },[])
 
-
-
   return (
     <div className={classes.container}>
     <Card className={classes.root}>
@@ -165,10 +164,10 @@ function CardComponent(props) {
         <div className={classes.circle}>
 
         <Typography className={classes.name} variant="h5" component="h2">
-          {props.name}
+          Pikachu
         </Typography>
           <KeyboardArrowLeftIcon className={classes.arrowLeft} />
-          <img className={classes.img} src={pokemonImage} />
+          <img className={classes.img} src="https://cdn.bulbagarden.net/upload/b/b8/025Pikachu_LG.png" />
           <KeyboardArrowRightIcon className={classes.arrowRight} />
         {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
           Charizard
@@ -184,6 +183,7 @@ function CardComponent(props) {
         </div>
 
         <CardActions className={classes.viewMore}>
+
           <Button size="small">Ver Detalhes</Button>
           <Route exact path='/'>
               <Button onClick={()=>addToPokedex(props.pokemon)} size="small">Adicionar na Pokedex</Button>
@@ -191,10 +191,11 @@ function CardComponent(props) {
           <Route exact path='/pokedex'>
               <Button onClick={()=>removeFromPokedex(props.pokemon)} size="small">Remover da Pokedex</Button>
           </Route>
+
         </CardActions>
       </CardContent>
     </Card>
-    {/* <Card className={classes.root}>
+    <Card className={classes.root}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Word of the Day
@@ -217,7 +218,7 @@ function CardComponent(props) {
       <CardActions className={CardComponentCSS.div}>
         <Button className={classes.button} size="small">Learn More</Button>
       </CardActions>
-    </Card> */}
+    </Card>
     </div>
   );
 }
