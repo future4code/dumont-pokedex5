@@ -3,6 +3,14 @@ import Header from '../componentes/Header/Header'
 import GlobalStateContext from "../global/globalStateContext"
 import axios from "axios"
 import CardComponent from "../componentes/cardComponent"
+import styled from 'styled-components'
+
+const MainDiv = styled.div `
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 8vh;
+  justify-content:center;
+`
 
 function Home() {
   const {states, setters} = useContext(GlobalStateContext)
@@ -19,17 +27,18 @@ function Home() {
 
  
   return (
-     <div>
-
+    <div>
       <Header/>
-      {states.listaPokemon &&
-        states.listaPokemon.map((pokemon)=> {
-          return (
-            <CardComponent key={pokemon.name} url={pokemon.url} name={pokemon.name} pokemon={pokemon}/>
+      <MainDiv>
+        {states.listaPokemon &&
+          states.listaPokemon.map((pokemon)=> {
+            return (
+              <CardComponent key={pokemon.name} url={pokemon.url} name={pokemon.name} pokemon={pokemon}/>
 
-          )
-        })
-      }
+            )
+          })
+        }
+      </MainDiv>
      </div>
   )
 }
