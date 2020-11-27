@@ -6,11 +6,12 @@ function GlobalState(props) {
 
     const [listaPokemon,setListaPokemon] = useState({})
     const [listPokedex,setListPokedex] = useState({})
+    const [linkToGetDetails,setLinkToGetDetails] = useState({})
 
    
 
-    const states = {listaPokemon,listPokedex}
-    const setters = {setListaPokemon,setListPokedex}
+    const states = {listaPokemon,listPokedex,linkToGetDetails}
+    const setters = {setListaPokemon,setListPokedex,setLinkToGetDetails}
     const data = {states,setters}
     
 
