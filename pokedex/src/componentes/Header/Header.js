@@ -1,9 +1,10 @@
+import { PinDropSharp } from '@material-ui/icons'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { HeaderDiv, Title } from './styles'
 
 
-const Header = () => {
+const Header = (props) => {
     const history = useHistory()
 
     const goToPokedex = () => {
@@ -35,7 +36,7 @@ const Header = () => {
             {history.location.pathname === '/details' ? (
                 <HeaderDiv>
                     <button onClick={goToList}>Voltar</button>
-                    <Title>Nome do Pokemon Selecionado</Title>
+                   <Title>{props.name}</Title>
                     <button onClick={goToPokedex}>Ir Para Pokedex</button>
                 </HeaderDiv>
             ):""}

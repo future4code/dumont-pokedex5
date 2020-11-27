@@ -16,6 +16,7 @@ function Home() {
     }
   },[])
 
+
  
   return (
      <div>
@@ -24,7 +25,7 @@ function Home() {
       {states.listaPokemon &&
         states.listaPokemon.map((pokemon)=> {
           return (
-            <CardComponent key={pokemon.name} name={pokemon.name} pokemon={pokemon}/>
+            <CardComponent key={pokemon.name} url={pokemon.url} name={pokemon.name} pokemon={pokemon}/>
 
           )
         })

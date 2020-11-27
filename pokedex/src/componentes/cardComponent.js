@@ -11,7 +11,7 @@ import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import CardComponentCSS from './cardComponent.css';
 import axios from 'axios'
-import { Route } from 'react-router-dom';
+import { Route,useHistory } from 'react-router-dom';
 import GlobalStateContext from "../global/globalStateContext"
 
 const useStyles = makeStyles({
@@ -101,12 +101,18 @@ const useStyles = makeStyles({
 });
 
 function CardComponent(props) {
+  const history = useHistory()
   const theme = useTheme();
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
   const [pokemonImage, setPokemonImage] = useState('')
   const {states, setters} = useContext(GlobalStateContext)
+
+  const goToDetails = (link) =>{
+    setters.setLinkToGetDetails(link)
+     history.push('/details')
+  }
 
   const addToPokedex = (itemToMove) => {
     let newPokedex = [...states.listPokedex]
@@ -184,7 +190,7 @@ function CardComponent(props) {
 
         <CardActions className={classes.viewMore}>
 
-          <Button size="small">Ver Detalhes</Button>
+          <Button onClick={()=>goToDetails(props.url)} size="small">Ver Detalhes</Button>
           <Route exact path='/'>
               <Button onClick={()=>addToPokedex(props.pokemon)} size="small">Adicionar na Pokedex</Button>
             </Route>
