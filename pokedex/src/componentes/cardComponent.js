@@ -100,7 +100,7 @@ const useStyles = makeStyles({
   }
 });
 
-function CardComponent() {
+function CardComponent(props) {
   const theme = useTheme();
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
@@ -164,10 +164,10 @@ function CardComponent() {
         <div className={classes.circle}>
 
         <Typography className={classes.name} variant="h5" component="h2">
-          Pikachu
+          {props.name}
         </Typography>
           <KeyboardArrowLeftIcon className={classes.arrowLeft} />
-          <img className={classes.img} src="https://cdn.bulbagarden.net/upload/b/b8/025Pikachu_LG.png" />
+          <img className={classes.img} src={pokemonImage} />
           <KeyboardArrowRightIcon className={classes.arrowRight} />
         {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
           Charizard
@@ -195,7 +195,7 @@ function CardComponent() {
         </CardActions>
       </CardContent>
     </Card>
-    <Card className={classes.root}>
+    {/* <Card className={classes.root}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Word of the Day
@@ -218,7 +218,7 @@ function CardComponent() {
       <CardActions className={CardComponentCSS.div}>
         <Button className={classes.button} size="small">Learn More</Button>
       </CardActions>
-    </Card>
+    </Card> */}
     </div>
   );
 }

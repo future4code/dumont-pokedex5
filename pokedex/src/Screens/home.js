@@ -27,7 +27,8 @@ function Home() {
             <CardComponent key={pokemon.name} name={pokemon.name} pokemon={pokemon}/>
 
           )
-        }))}
+        })
+      }
      </div>
   )
 }
