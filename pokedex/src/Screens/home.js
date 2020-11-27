@@ -9,10 +9,13 @@ function Home() {
   const {states, setters} = useContext(GlobalStateContext)
  
   useEffect(()=>{
-    axios.get("https://pokeapi.co/api/v2/pokemon/").then(response =>{
-      setters.setListaPokemon(response.data.results)
-    })
+    if(states.listPokedex.length===0) {
+      axios.get("https://pokeapi.co/api/v2/pokemon/").then(response =>{
+        setters.setListaPokemon(response.data.results)
+      })
+    }
   },[])
+
 
   console.log(states)
 
@@ -22,7 +25,7 @@ function Home() {
       {states.listaPokemon &&
         states.listaPokemon.map((pokemon)=> {
           return (
-            <CardComponent key={pokemon.name} name={pokemon.name}/>
+            <CardComponent key={pokemon.name} name={pokemon.name} pokemon={pokemon}/>
           )
         })
       }

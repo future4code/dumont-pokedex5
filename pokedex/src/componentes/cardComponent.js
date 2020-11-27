@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -12,6 +12,7 @@ import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import CardComponentCSS from './cardComponent.css';
 import axios from 'axios'
 import { Route } from 'react-router-dom';
+import GlobalStateContext from "../global/globalStateContext"
 
 const useStyles = makeStyles({
   container: {
@@ -104,11 +105,32 @@ function CardComponent(props) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
   const [pokemonImage, setPokemonImage] = useState('')
-  const addToPokedex = () => {
-    window.alert("Adicionado")
+  const {states, setters} = useContext(GlobalStateContext)
+
+  const addToPokedex = (itemToMove) => {
+    let newPokedex = [...states.listPokedex]
+    newPokedex.push({...itemToMove})
+
+    const index = states.listaPokemon.findIndex((pokemon) => pokemon === itemToMove)
+    let newList = [...states.listaPokemon]
+    newList.splice(index,1)
+
+    setters.setListPokedex(newPokedex)
+    setters.setListaPokemon(newList)
+    window.alert(`Adicionado ${itemToMove.name} na Pokedex`)
   }
-  const removeFromPokedex = () => {
-    window.alert("Removido")
+  
+  const removeFromPokedex = (itemToMove) => {
+    let newList = [...states.listaPokemon]
+    newList.push({...itemToMove})
+
+    const index = states.listPokedex.findIndex((pokemon) => pokemon === itemToMove)
+    let newPokedex = [...states.listPokedex]
+    newPokedex.splice(index,1)
+
+    setters.setListPokedex(newPokedex)
+    setters.setListaPokemon(newList)
+    window.alert(`Removido ${itemToMove.name} da Pokedex`)
   }
 
   useEffect(()=>{
@@ -164,10 +186,10 @@ function CardComponent(props) {
         <CardActions className={classes.viewMore}>
           <Button size="small">Ver Detalhes</Button>
           <Route exact path='/'>
-              <Button onClick={addToPokedex} size="small">Adicionar na Pokedex</Button>
+              <Button onClick={()=>addToPokedex(props.pokemon)} size="small">Adicionar na Pokedex</Button>
             </Route>
           <Route exact path='/pokedex'>
-              <Button onClick={removeFromPokedex} size="small">Remover da Pokedex</Button>
+              <Button onClick={()=>removeFromPokedex(props.pokemon)} size="small">Remover da Pokedex</Button>
           </Route>
         </CardActions>
       </CardContent>
