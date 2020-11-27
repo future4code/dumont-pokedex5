@@ -5,12 +5,15 @@ Nome dos integrantes:
 - José Rafael
 - Rafael Fontes
 
-Link do Surge: www.link.com.br
+Link do Surge: http://dumont-pokedex5.surge.sh/
 
 O que funciona:
-- Item 1
-- Item 2
+- Header com botões de navegação
+- Lista
+- Pokedex
+- Botões de Adicionar/Remover e Ver Detalhes
+- Detalhes (parcial)
 
 O que não funciona: 
-- Item 3
-- Item 4
+- Layout do Card
+- Tipos do Pokemons nos Detalhes
