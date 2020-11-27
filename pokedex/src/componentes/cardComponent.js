@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -10,6 +10,8 @@ import EcoIcon from '@material-ui/icons/Eco';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import CardComponentCSS from './cardComponent.css';
+import axios from 'axios'
+import { Route } from 'react-router-dom';
 
 const useStyles = makeStyles({
   container: {
@@ -97,10 +99,31 @@ const useStyles = makeStyles({
   }
 });
 
-function CardComponent() {
+function CardComponent(props) {
   const theme = useTheme();
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
+  const [pokemonImage, setPokemonImage] = useState('')
+  const addToPokedex = () => {
+    window.alert("Adicionado")
+  }
+  const removeFromPokedex = () => {
+    window.alert("Removido")
+  }
+
+  useEffect(()=>{
+  
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${props.name}`)
+    .then((res)=>{
+      setPokemonImage(res.data.sprites.front_default)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+
+  },[])
+
+
 
   return (
     <div className={classes.container}>
@@ -120,10 +143,10 @@ function CardComponent() {
         <div className={classes.circle}>
 
         <Typography className={classes.name} variant="h5" component="h2">
-          Pikachu
+          {props.name}
         </Typography>
           <KeyboardArrowLeftIcon className={classes.arrowLeft} />
-          <img className={classes.img} src="https://cdn.bulbagarden.net/upload/b/b8/025Pikachu_LG.png" />
+          <img className={classes.img} src={pokemonImage} />
           <KeyboardArrowRightIcon className={classes.arrowRight} />
         {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
           Charizard
@@ -139,11 +162,17 @@ function CardComponent() {
         </div>
 
         <CardActions className={classes.viewMore}>
-          <Button size="small">View More</Button>
+          <Button size="small">Ver Detalhes</Button>
+          <Route exact path='/'>
+              <Button onClick={addToPokedex} size="small">Adicionar na Pokedex</Button>
+            </Route>
+          <Route exact path='/pokedex'>
+              <Button onClick={removeFromPokedex} size="small">Remover da Pokedex</Button>
+          </Route>
         </CardActions>
       </CardContent>
     </Card>
-    <Card className={classes.root}>
+    {/* <Card className={classes.root}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Word of the Day
@@ -166,7 +195,7 @@ function CardComponent() {
       <CardActions className={CardComponentCSS.div}>
         <Button className={classes.button} size="small">Learn More</Button>
       </CardActions>
-    </Card>
+    </Card> */}
     </div>
   );
 }
