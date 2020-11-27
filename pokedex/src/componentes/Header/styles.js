@@ -9,6 +9,7 @@ export const HeaderDiv = styled.div `
     background-color: lightskyblue;
     width:97vw;
     position:absolute;
+    height: 8vh;
 `
 export const Title = styled.h1 `
     color: white;
