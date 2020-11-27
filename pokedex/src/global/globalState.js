@@ -5,7 +5,7 @@ import GlobalStateContext from "./globalStateContext"
 function GlobalState(props) {
 
 
-    const [linkToGetDetails,setLinkToGetDetails] = useState({})
+    const [linkToGetDetails,setLinkToGetDetails] = useState("")
     const [listaPokemon,setListaPokemon] = useState([])
     const [listPokedex,setListPokedex] = useState([])
 
