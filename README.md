@@ -12,8 +12,8 @@ O que funciona:
 - Lista
 - Pokedex
 - Botões de Adicionar/Remover e Ver Detalhes
-- Detalhes (parcial)
+- Detalhes
 
 O que não funciona: 
 - Layout do Card
-- Tipos do Pokemons nos Detalhes
+- Desafios
