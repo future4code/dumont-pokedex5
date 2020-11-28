@@ -64,15 +64,17 @@ function Details() {
 
    const {states, setters} = useContext(GlobalStateContext)
    const [pokemonDetails,setPokemonDetails] = useState("")
+   const [types,setTypes] = useState([])
 
    useEffect(()=>{
       axios.get(states.linkToGetDetails).then(response =>{
-           setPokemonDetails(response)    
+           setPokemonDetails(response)
+           setTypes(response.data.types)    
       }).catch(error=>{
          console.log("fsdgf",error)
       })
    },[])
-   
+  console.log("types",types)
   return (
    <Page>
       {pokemonDetails &&     
@@ -96,11 +98,12 @@ function Details() {
             <div>
                
                <Type>
-                  {pokemonDetails.data.types.map((item)=> {
+                  {types && types.map((item, index)=> {
+                     return(
                      <div>
-                        <p>type 1: {item.type.name}</p>
-                        <p>type 2: {item.type.name}</p>
+                        <p>type {index+1}: {item.type.name}</p>
                      </div>
+                     )
                   })
                   }
                </Type>
