@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import Header from '../componentes/Header/Header'
 import GlobalStateContext from "../global/globalStateContext"
-import CardComponent from '../componentes/cardComponent'
+import CardComponent from '../componentes/CardComponent/CardComponent'
 import styled from 'styled-components'
 
 const MainDiv = styled.div `

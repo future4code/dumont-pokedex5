@@ -1,0 +1,23 @@
+[class*="makeStyles-viewMore"]:hover {
+    transform: translate(5px, 5px);
+}
+
+[class*="makeStyles-viewMore"]:active {
+    transform: translate(0px, 5px);
+}
+
+[class*="makeStyles-arrowLeft"]:hover {
+    transform: translate(-10px, -50%);
+}
+
+[class*="makeStyles-arrowLeft"]:active {
+    transform: translate(5px, -50%);
+}
+    
+[class*="makeStyles-arrowRight"]:hover {
+    transform: translate(10px, -50%);
+}
+
+[class*="makeStyles-arrowRight"]:active {
+    transform: translate(5px, -50%);
+}

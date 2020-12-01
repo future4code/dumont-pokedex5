@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from "react"
 import Header from '../componentes/Header/Header'
 import GlobalStateContext from "../global/globalStateContext"
 import axios from "axios"
-import CardComponent from "../componentes/cardComponent"
+import CardComponent from "../componentes/CardComponent/CardComponent";
 import styled from 'styled-components'
 
 const MainDiv = styled.div `
@@ -11,7 +11,6 @@ const MainDiv = styled.div `
   padding-top: 8vh;
   justify-content:center;
 `
-
 function Home() {
   const {states, setters} = useContext(GlobalStateContext)
  
@@ -24,8 +23,6 @@ function Home() {
     }
   },[])
 
-
- 
   return (
     <div>
       <Header/>
@@ -33,8 +30,7 @@ function Home() {
         {states.listaPokemon &&
           states.listaPokemon.map((pokemon)=> {
             return (
-              <CardComponent key={pokemon.name} url={pokemon.url} name={pokemon.name} pokemon={pokemon}/>
-
+              <CardComponent key={pokemon.name} url={pokemon.url} name={pokemon.name} pokemon={pokemon} />
             )
           })
         }

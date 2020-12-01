@@ -1,6 +1,6 @@
 import HomePage from "../Screens/home"
 import Details from "../Screens/details"
-import CardComponent from "../componentes/cardComponent"
+import CardComponent from "./CardComponent/CardComponent"
 import Pokedex from "../Screens/pokedex"
 import ErrorPage from "../Screens/errorPage"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
@@ -25,25 +25,25 @@ theme = responsiveFontSizes(theme);
 function Router() {
   return (
     <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-        <Route exact path="/pokedex">
-          <Pokedex/>
-        </Route>
-        <Route exact path="/details">
-          <Details/>
-        </Route>
-        <Route exact path="/Card">
-          <CardComponent />
-        </Route>
-        <Route>
-          <ErrorPage/>
-        </Route>
-      </Switch>
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Switch>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Route exact path="/pokedex">
+            <Pokedex/>
+          </Route>
+          <Route exact path="/details">
+            <Details/>
+          </Route>
+          <Route exact path="/card">
+            <CardComponent />
+          </Route>
+          <Route>
+            <ErrorPage/>
+          </Route>
+        </Switch>
+      </ThemeProvider>
     </BrowserRouter>
   )
 }
