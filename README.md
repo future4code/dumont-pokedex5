@@ -15,5 +15,4 @@ O que funciona:
 - Detalhes
 
 O que não funciona: 
-- Layout do Card
 - Desafios
